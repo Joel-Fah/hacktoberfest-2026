@@ -170,18 +170,6 @@ Aucun nouveau challenge n'est lancé. La semaine sert à terminer et livrer.
 
 La finale est avant tout un festival de builders : les participants montrent ce qu'ils ont construit, contribué et appris pendant le mois.
 
-| Heure | Activité |
-|---|---|
-| 09:30–10:00 | Accueil et **One Month of Open Source** : participants, hubs, projets et contributions |
-| 10:00–10:30 | Keynote : **The Future of Open Source in the Age of AI** |
-| 10:30–12:30 | Open Source Showcase : démonstrations sélectionnées des hubs et participants online |
-| 12:30–14:00 | Community Lunch, stands projets, communautés, partenaires et networking |
-| 14:00–15:00 | Sponsor Engineering Showcase : démonstrations techniques, sans pitch commercial |
-| 15:00–16:00 | Community Lightning Talks : 5 minutes maximum par participant |
-| 16:00–17:00 | Final Demos et vote Community Choice |
-| 17:00–17:30 | Hacktoberfest Awards |
-| À partir de 17:30 | Closing, rencontres, restauration et musique |
-
 ### Format des démonstrations
 
 - **5 minutes de démonstration** ;
