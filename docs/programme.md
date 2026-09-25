@@ -181,9 +181,6 @@ La finale est avant tout un festival de builders : les participants montrent ce 
 - First-Time Contributor
 - Outstanding Open Source Contribution
 - Open Source Project Award
-- African Open Source Impact
-- Community / Maintainer Award
-- Community Choice
 
 ---
 
