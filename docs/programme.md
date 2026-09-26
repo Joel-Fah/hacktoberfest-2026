@@ -52,7 +52,7 @@ Créer un projet open source utile avec une technologie d'IA open source ou un m
 | 10:20–11:20 | Workshop : **Your First Open Source Contribution** | 🌍 Telegram Live + 📍 Hubs |
 | 11:20–12:30 | Découverte des projets, choix du parcours et formation des équipes | 📍 Hubs + 🏠 Online |
 | 12:30–13:30 | Repas et networking | 📍 Hubs |
-| 13:30–13:50 | Sponsor Engineering Spotlight : **Show us what you build** | 🌍 Telegram Live |
+| 13:30–13:50 | Sponsor Engineering Spotlight : **Show us what you build** | 🌍 Telegram Live + 📍 Hubs |
 | 13:50–17:00 | Open Hacking : contribution, mentoring et pair programming | 📍 Hubs + 🏠 Online |
 | 17:00–18:00 | Show & Tell local | 📍 Chaque hub |
 
@@ -79,7 +79,7 @@ Créer un projet open source utile avec une technologie d'IA open source ou un m
 | 10:45–11:15 | Open Source Project Pitches : environ 5 projets × 5 minutes | 🌍 Telegram Live + 📍 Hubs |
 | 11:15–13:00 | Open Hacking | 📍 Hubs + 🏠 Online |
 | 13:00–14:00 | Repas et networking | 📍 Hubs |
-| 14:00–14:20 | Sponsor Engineering Spotlight | 🌍 Telegram Live |
+| 14:00–14:20 | Sponsor Engineering Spotlight | 🌍 Telegram Live + 📍 Hubs |
 | 14:20–17:00 | Open Hacking et mentoring | 📍 Hubs + 🏠 Online |
 | 17:00–18:00 | Show & Tell local : **What did you ship this week?** | 📍 Chaque hub |
 
@@ -108,7 +108,7 @@ Thèmes possibles : éducation, culture, transports, environnement, outils déve
 | 10:45–11:45 | Workshop pratique : **Building with Open Source AI** | 🌍 Telegram Live + 📍 Hubs |
 | 11:45–13:00 | Open Hacking | 📍 Hubs + 🏠 Online |
 | 13:00–14:00 | Repas et networking | 📍 Hubs |
-| 14:00–14:20 | Sponsor Engineering Spotlight : **How We Use Open Source AI** | 🌍 Telegram Live |
+| 14:00–14:20 | Sponsor Engineering Spotlight : **How We Use Open Source AI** | 🌍 Telegram Live + 📍 Hubs |
 | 14:20–17:00 | Open Hacking — projets IA ou tout autre projet OSS | 📍 Hubs + 🏠 Online |
 | 17:00–18:00 | Show & Tell local | 📍 Chaque hub |
 
