@@ -691,14 +691,18 @@ footer { background: var(--navy-deep); color: #C9D6F2; padding: 60px 0 26px; }
     max-height: 0;
     overflow: hidden;
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: max-height .25s ease, opacity .2s ease;
+    /* delay visibility so links stay visible while the menu animates closed */
+    transition: max-height .25s ease, opacity .2s ease, visibility 0s linear .25s;
   }
 
   .nav-menu.is-open {
     max-height: 420px;
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
+    transition: max-height .25s ease, opacity .2s ease, visibility 0s;
   }
 
   .nav-links {
