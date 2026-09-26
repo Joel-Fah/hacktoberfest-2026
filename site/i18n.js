@@ -278,6 +278,7 @@
     "— keep contributing to existing projects and respond to the first reviews.": "— poursuivre les contributions aux projets existants et répondre aux premières reviews.",
     "— pick a problem, agree on a realistic scope and build a first prototype.": "— choisir un problème, valider un périmètre réaliste et développer un premier prototype.",
     "🌍 Telegram Live": "🌍 Live Telegram",
+    "🌍 Telegram Live + 📍 Hubs": "🌍 Live Telegram + 📍 Hubs",
     "🌱 START": "🌱 DÉMARRER",
     "🎉 3 – 31 OCTOBER 2026": "🎉 3 – 31 OCTOBRE 2026",
     "🎉 SHOW": "🎉 MONTRER",

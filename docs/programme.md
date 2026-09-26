@@ -48,8 +48,8 @@ Créer un projet open source utile avec une technologie d'IA open source ou un m
 
 | Heure | Activité | Format |
 |---|---|---|
-| 10:00–10:20 | Ouverture : programme, hubs, parcours, challenges et partenaires | 🌍 Telegram Live |
-| 10:20–11:20 | Workshop : **Your First Open Source Contribution** | 🌍 Telegram Live |
+| 10:00–10:20 | Ouverture : programme, hubs, parcours, challenges et partenaires | 🌍 Telegram Live + 📍 Hubs |
+| 10:20–11:20 | Workshop : **Your First Open Source Contribution** | 🌍 Telegram Live + 📍 Hubs |
 | 11:20–12:30 | Découverte des projets, choix du parcours et formation des équipes | 📍 Hubs + 🏠 Online |
 | 12:30–13:30 | Repas et networking | 📍 Hubs |
 | 13:30–13:50 | Sponsor Engineering Spotlight : **Show us what you build** | 🌍 Telegram Live |
@@ -75,8 +75,8 @@ Créer un projet open source utile avec une technologie d'IA open source ou un m
 
 | Heure | Activité | Format |
 |---|---|---|
-| 10:00–10:45 | Workshop : **From Issue to Pull Request** | 🌍 Telegram Live |
-| 10:45–11:15 | Open Source Project Pitches : environ 5 projets × 5 minutes | 🌍 Telegram Live |
+| 10:00–10:45 | Workshop : **From Issue to Pull Request** | 🌍 Telegram Live + 📍 Hubs |
+| 10:45–11:15 | Open Source Project Pitches : environ 5 projets × 5 minutes | 🌍 Telegram Live + 📍 Hubs |
 | 11:15–13:00 | Open Hacking | 📍 Hubs + 🏠 Online |
 | 13:00–14:00 | Repas et networking | 📍 Hubs |
 | 14:00–14:20 | Sponsor Engineering Spotlight | 🌍 Telegram Live |
@@ -104,8 +104,8 @@ Thèmes possibles : éducation, culture, transports, environnement, outils déve
 
 | Heure | Activité | Format |
 |---|---|---|
-| 10:00–10:45 | Panel : **AI × Open Source — What Changes Now?** | 🌍 Telegram Live |
-| 10:45–11:45 | Workshop pratique : **Building with Open Source AI** | 🌍 Telegram Live |
+| 10:00–10:45 | Panel : **AI × Open Source — What Changes Now?** | 🌍 Telegram Live + 📍 Hubs |
+| 10:45–11:45 | Workshop pratique : **Building with Open Source AI** | 🌍 Telegram Live + 📍 Hubs |
 | 11:45–13:00 | Open Hacking | 📍 Hubs + 🏠 Online |
 | 13:00–14:00 | Repas et networking | 📍 Hubs |
 | 14:00–14:20 | Sponsor Engineering Spotlight : **How We Use Open Source AI** | 🌍 Telegram Live |
@@ -134,8 +134,8 @@ Les participants du Contribute Track peuvent continuer normalement leurs contrib
 
 | Heure | Activité | Format |
 |---|---|---|
-| 10:00–10:30 | Workshop express : **Make Your Project Contributor-Ready** | 🌍 Telegram Live |
-| 10:30–10:50 | Sponsor Engineering Spotlight | 🌍 Telegram Live |
+| 10:00–10:30 | Workshop express : **Make Your Project Contributor-Ready** | 🌍 Telegram Live + 📍 Hubs |
+| 10:30–10:50 | Sponsor Engineering Spotlight | 🌍 Telegram Live + 📍 Hubs |
 | 10:50–13:00 | Open Hacking | 📍 Hubs + 🏠 Online |
 | 13:00–14:00 | Repas et networking | 📍 Hubs |
 | 14:00–17:00 | Open Hacking et préparation des démos | 📍 Hubs + 🏠 Online |
