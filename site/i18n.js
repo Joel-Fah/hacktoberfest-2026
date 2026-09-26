@@ -290,6 +290,7 @@
 
   var STORAGE_KEY = 'hf26-lang';
   var toggle = document.getElementById('langToggle');
+  var navToggle = document.getElementById('navToggle');
   var entries = [];
 
   function norm(s) { return s.replace(/\s+/g, ' ').trim(); }
@@ -317,6 +318,7 @@
       toggle.setAttribute('aria-label', fr ? 'EN — Switch to English' : 'FR — Passer en français');
       toggle.setAttribute('lang', fr ? 'en' : 'fr');
     }
+    if (navToggle) navToggle.setAttribute('aria-label', fr ? 'Ouvrir ou fermer le menu' : 'Toggle menu');
   }
 
   function saved() {
