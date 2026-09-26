@@ -10,6 +10,7 @@
   --muted: #5B6B87;
   --blue: #0090F0;
   --blue-2: #3b76ef;
+  --blue-text: #0066C0; /* accessible blue for text: >= 5:1 on --bg, --surface and --tint */
   --bg: #ffffff;
   --surface: #F7F9FC;
   --tint: #EAF2FE;
@@ -68,7 +69,7 @@ p { margin: 0; }
   font-size: 12.5px;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--blue);
+  color: var(--blue-text);
   font-weight: 600;
 }
 
@@ -200,12 +201,12 @@ p { margin: 0; }
 .btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 
 .btn-solid { background: var(--navy); color: var(--white); }
-.btn-solid:hover { background: var(--blue); }
+.btn-solid:hover { background: var(--blue-text); }
 
 .btn-outline { background: transparent; color: var(--navy); border-color: var(--navy); }
 .btn-outline:hover { background: var(--navy); color: var(--white); }
 
-.btn-ghost { background: transparent; color: var(--blue); border-color: var(--tint-strong); }
+.btn-ghost { background: transparent; color: var(--blue-text); border-color: var(--tint-strong); }
 .btn-ghost:hover { background: var(--tint); }
 
 .btn-sm { padding: 7px 16px; font-size: 13px; }
@@ -514,7 +515,7 @@ tbody td:last-child { white-space: nowrap; color: var(--muted); font-size: 13px;
   text-decoration: none;
   color: var(--ink);
 }
-.project-card a.name:hover { color: var(--blue); }
+.project-card a.name:hover { color: var(--blue-text); }
 
 .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
 
@@ -612,7 +613,7 @@ tbody td:last-child { white-space: nowrap; color: var(--muted); font-size: 13px;
 .cta-band p { color: #C9D6F2; margin-top: 10px; max-width: 46ch; }
 .cta-band .actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .cta-band .btn-solid { background: var(--white); color: var(--navy); }
-.cta-band .btn-solid:hover { background: var(--blue); color: var(--white); }
+.cta-band .btn-solid:hover { background: var(--blue-text); color: var(--white); }
 .cta-band .btn-outline { border-color: rgba(255,255,255,.5); color: var(--white); }
 .cta-band .btn-outline:hover { background: var(--white); color: var(--navy); }
 
