@@ -183,6 +183,7 @@
     "Quality over quantity": "La qualité avant la quantité",
     "Quick workshop:": "Atelier express :",
     "React/TypeScript, Tailwind, discovery": "React/TypeScript, Tailwind, découverte",
+    "Register": "S'inscrire",
     "Remote": "À distance",
     "Repository": "Dépôt",
     "Research/ML": "Recherche/ML",
