@@ -2,7 +2,7 @@
 
 ## Programme final — du 3 au 31 octobre 2026
 
-**Organisé par OSSCameroon, avec Atori Space et les hubs partenaires**
+**Organisé par OSSCameroon, avec Atori Space, MODULIS Tech et les hubs partenaires**
 
 > **4 weeks. 4 sprints. Multiple hubs. One open-source community.**  
 > **Learn on Saturday. Build all week. Show what you made.**
