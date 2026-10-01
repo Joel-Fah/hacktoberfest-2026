@@ -2,7 +2,7 @@
 
 Here we centralise every initiative taken by OSSCameroon during Hacktoberfest 2026.
 
-**Hacktoberfest Cameroon 2026** runs from 3 to 31 October 2026: four weekly sprints kicked off every Saturday, organised by OSSCameroon with Atori Space and partner hubs, and closed by a finale on 31 October.
+**Hacktoberfest Cameroon 2026** runs from 3 to 31 October 2026: four weekly sprints kicked off every Saturday, organised by OSSCameroon with Atori Space, MODULIS Tech and partner hubs, and closed by a finale on 31 October.
 
 - Website: https://osscameroon.github.io/hacktoberfest-2026/
 - Telegram: https://t.me/+UpKZh_KXTaTx7JD7
