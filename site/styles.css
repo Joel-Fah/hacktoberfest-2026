@@ -830,3 +830,18 @@ footer { background: var(--navy-deep); color: #C9D6F2; padding: 60px 0 26px; }
   .cta-band { padding: 32px; flex-direction: column; align-items: flex-start; }
   .foot-grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- Scroll reveals ---------- */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .section-head,
+    .section .grid > *,
+    .roadmap .step,
+    .cta-band {
+      animation: reveal linear backwards;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+    @keyframes reveal { from { opacity: 0; transform: translateY(14px); } }
+  }
+}
