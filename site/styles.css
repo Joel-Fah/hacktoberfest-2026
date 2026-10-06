@@ -471,6 +471,59 @@ a.chip:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 .week-body h4 { font-size: 14.5px; margin: 22px 0 10px; color: var(--navy); }
 .week-body h4:first-child { margin-top: 22px; }
 
+/* Programme timeline rail: dot + connector drawn outside each week card */
+#programme .week {
+  --rail: 40px;
+  position: relative;
+  margin-left: var(--rail);
+  overflow: visible;
+}
+
+#programme .week::before {
+  content: "";
+  position: absolute;
+  top: 29px;
+  left: calc(var(--rail) * -1 + 3px);
+  width: 14px; height: 14px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border: 2px solid var(--navy);
+  background: var(--bg);
+  transition: background-color .2s ease;
+}
+
+#programme .week[open]::before { background: var(--navy); }
+
+#programme .week::after {
+  content: "";
+  position: absolute;
+  top: 43px;
+  left: calc(var(--rail) * -1 + 9px);
+  width: 2px;
+  height: calc(100% + 2px);
+  background: var(--border);
+}
+
+#programme #week-5::after { display: none; }
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    #programme .week::after {
+      background: linear-gradient(var(--blue), var(--blue)) top / 100% 0% no-repeat var(--border);
+      animation: rail-fill linear both;
+      animation-timeline: view();
+      animation-range: entry 40% cover 60%;
+    }
+    @keyframes rail-fill { to { background-size: 100% 100%; } }
+  }
+}
+
+@media (max-width: 720px) {
+  #programme .week { --rail: 28px; }
+  #programme .week::before { left: -25px; width: 12px; height: 12px; }
+  #programme .week::after { top: 41px; left: -20px; }
+}
+
 .table-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; }
 
 table { border-collapse: collapse; width: 100%; font-size: 13.8px; min-width: 560px; }
