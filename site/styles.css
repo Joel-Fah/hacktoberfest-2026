@@ -28,6 +28,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+section[id], details[id] { scroll-margin-top: 72px; } /* sticky .nav height */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
