@@ -228,6 +228,7 @@ p { margin: 0; }
   align-items: center;
   gap: 8px;
   align-self: flex-start;
+  justify-self: start;
   background: var(--tint);
   border: 1px solid var(--tint-strong);
   color: var(--navy);
