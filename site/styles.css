@@ -567,6 +567,7 @@ a.card:hover .card-link, a.card:focus-visible .card-link { text-decoration: unde
   border-color: var(--navy);
   color: var(--white);
 }
+.card--invert h3 { color: var(--white); }
 .card--invert .icon-box { background: rgba(255,255,255,.14); color: var(--white); }
 .card--invert p { color: #C9D6F2; }
 .card--invert .card-link { color: var(--white); }
