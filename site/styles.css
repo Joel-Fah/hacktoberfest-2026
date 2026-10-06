@@ -432,7 +432,7 @@ p { margin: 0; }
 }
 
 /* ---------- Sections ---------- */
-.section { padding: 64px 0; }
+.section { padding: 72px 0; }
 .section--tint {
   background: linear-gradient(to bottom, var(--bg) 0, var(--band) 160px, var(--band) calc(100% - 160px), var(--bg) 100%);
 }
@@ -442,12 +442,31 @@ p { margin: 0; }
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 34px;
+  margin-bottom: 40px;
   flex-wrap: wrap;
 }
 
-.section-head h2 { font-size: clamp(24px, 3vw, 32px); }
-.section-head p { color: var(--muted); font-size: 15px; max-width: 56ch; margin-top: 8px; }
+/* Kicker: a small accent mark ahead of the label, echoing the hero's icon + text pattern */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue-text);
+}
+
+.section-head h2 {
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  margin-top: 10px;
+}
+.section-head p { color: var(--muted); font-size: 16px; line-height: 1.55; max-width: 48ch; margin-top: 10px; }
 
 /* ---------- Organisers strip ---------- */
 .orgs {
@@ -853,18 +872,31 @@ tbody td:last-child { white-space: nowrap; color: var(--muted); font-size: 13px;
 
 /* ---------- Get involved (CTA band) ---------- */
 .cta-band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background: var(--navy);
   color: var(--white);
   border-radius: 28px;
-  padding: 48px;
+  padding: 56px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 32px;
   flex-wrap: wrap;
 }
-.cta-band h2 { color: var(--white); font-size: clamp(22px, 3vw, 30px); }
-.cta-band p { color: #C9D6F2; margin-top: 10px; max-width: 46ch; }
+/* A smaller echo of the hero's glow, so the closing CTA still feels part of the same page */
+.cta-band::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -40% -10% auto auto;
+  width: 60%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, color-mix(in srgb, var(--blue) 35%, transparent) 0%, transparent 70%);
+}
+.cta-band h2 { color: var(--white); font-size: clamp(26px, 3.6vw, 38px); letter-spacing: -.02em; }
+.cta-band p { color: #C9D6F2; font-size: 16px; margin-top: 10px; max-width: 46ch; }
 .cta-band .actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .cta-band .btn-solid { background: var(--white); color: var(--navy); }
 .cta-band .btn-solid:hover { background: var(--tint); }
