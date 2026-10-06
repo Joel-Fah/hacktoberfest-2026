@@ -781,6 +781,25 @@
     if (e.key === 'Escape') closeMenu();
   });
 })();
+
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var links = {};
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (a) { links[a.hash.slice(1)] = a; });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var link = links[e.target.id];
+      if (e.isIntersecting) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  }, { rootMargin: '-35% 0px -60% 0px' });
+
+  Object.keys(links).forEach(function (id) {
+    var section = document.getElementById(id);
+    if (section) io.observe(section);
+  });
+})();
 </script>
 <script src="i18n.js"></script>
 
