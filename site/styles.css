@@ -28,6 +28,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+section[id], details[id] { scroll-margin-top: 72px; } /* sticky .nav height */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -220,13 +221,14 @@ p { margin: 0; }
     var(--bg);
 }
 
-.hero-inner { display: grid; gap: 22px; max-width: 780px; }
+.hero-inner { display: grid; gap: 22px; }
 
 .pill {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   align-self: flex-start;
+  justify-self: start;
   background: var(--tint);
   border: 1px solid var(--tint-strong);
   color: var(--navy);
@@ -452,6 +454,17 @@ a.chip:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
 }
 
 .week[open] .chevron { transform: rotate(45deg); }
+
+/* Smooth open/close where supported; details just snaps open/closed otherwise */
+@supports (interpolate-size: allow-keywords) {
+  .week { interpolate-size: allow-keywords; }
+  .week::details-content {
+    height: 0;
+    overflow: hidden;
+    transition: height .3s ease, content-visibility .3s ease allow-discrete;
+  }
+  .week[open]::details-content { height: auto; }
+}
 
 .week-body { padding: 0 26px 28px; border-top: 1px solid var(--border); }
 .week-body > * + * { margin-top: 22px; }
