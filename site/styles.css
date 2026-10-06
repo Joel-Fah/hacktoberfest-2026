@@ -423,6 +423,14 @@ a.step:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; bord
   overflow: hidden;
 }
 
+.week[open] summary {
+  position: sticky;
+  top: 72px; /* matches section[id] scroll-margin-top, i.e. the sticky nav height */
+  z-index: 2;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
 .week summary {
   list-style: none;
   cursor: pointer;
