@@ -221,7 +221,7 @@ p { margin: 0; }
     var(--bg);
 }
 
-.hero-inner { display: grid; gap: 22px; max-width: 780px; }
+.hero-inner { display: grid; gap: 22px; }
 
 .pill {
   display: inline-flex;
