@@ -76,14 +76,16 @@ try {
 
   <!-- ============ HERO ============ -->
   <section class="hero">
-    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grid-bg" id="heroGridBg" aria-hidden="true">
+      <div class="hero-grid-spotlight"></div>
+    </div>
     <div class="wrap hero-inner">
       <div class="hero-pills">
         <span class="pill pill--muted"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m14 4 6 6-9 9-6.5 1.5L6 13.5 14 4Z"/><path d="m12.5 6 5.5 5.5"/></svg>Build all week</span>
         <span class="pill"><svg class="icon" aria-hidden="true"><use href="#i-confetti"/></svg>3 – 31 OCTOBER 2026</span>
         <span class="pill pill--muted"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 9.5 8.5 3.5 9l4.5 4L6.5 19 12 15.8 17.5 19 16 13l4.5-4-6-.5L12 3Z"/></svg>Show what you made</span>
       </div>
-      <h1>Hacktoberfest Cameroon 2026</h1>
+      <h1>Hacktoberfest Cameroon <span class="accent-year">2026</span></h1>
       <p class="lede">Hacktoberfest Cameroon is a month of contributing, building and meeting up around open source — organised by OSSCameroon, with Atori Space, MODULIS Tech and partner hubs.</p>
       <ul class="promise">
         <li>4 weeks.</li>
@@ -876,6 +878,66 @@ try {
     label(next);
     try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
   });
+})();
+
+(function () {
+  var bg = document.getElementById('heroGridBg');
+  if (!bg) return;
+
+  var COLS = 64, ROWS = 22;
+  var LEVELS = [0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 3, 4]; // weighted toward low density, like a quiet graph
+
+  function randomLevel() { return LEVELS[Math.floor(Math.random() * LEVELS.length)]; }
+
+  var grid = document.createElement('div');
+  grid.className = 'hero-grid-cells';
+  grid.style.setProperty('--cols', COLS);
+  grid.style.setProperty('--rows', ROWS);
+
+  var cells = [];
+  var frag = document.createDocumentFragment();
+  for (var i = 0; i < COLS * ROWS; i++) {
+    var cell = document.createElement('i');
+    cell.className = 'lvl-' + randomLevel();
+    frag.appendChild(cell);
+    cells.push(cell);
+  }
+  grid.appendChild(frag);
+  bg.insertBefore(grid, bg.firstChild);
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Every 3-5s, a handful of cells drift to a new density. The CSS
+  // transition on background-color does the animating; this just picks
+  // which cells and what they become — never a full redraw.
+  if (!reduceMotion) {
+    (function tick() {
+      var n = 3 + Math.floor(Math.random() * 3);
+      for (var k = 0; k < n; k++) {
+        var cell = cells[Math.floor(Math.random() * cells.length)];
+        cell.className = 'lvl-' + randomLevel();
+      }
+      setTimeout(tick, 3000 + Math.random() * 2000);
+    })();
+  }
+
+  // Pointer-proximity glow, Windows-settings-tile style: one overlay that
+  // tracks the cursor, not per-cell logic. Skipped on touch-only devices.
+  var spotlight = bg.querySelector('.hero-grid-spotlight');
+  if (spotlight && window.matchMedia('(hover: hover)').matches) {
+    var raf = null;
+    bg.addEventListener('pointermove', function (e) {
+      if (raf) return;
+      raf = requestAnimationFrame(function () {
+        var rect = bg.getBoundingClientRect();
+        spotlight.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+        spotlight.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+        spotlight.style.opacity = 1;
+        raf = null;
+      });
+    });
+    bg.addEventListener('pointerleave', function () { spotlight.style.opacity = 0; });
+  }
 })();
 </script>
 <script src="i18n.js"></script>

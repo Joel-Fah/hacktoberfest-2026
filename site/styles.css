@@ -29,6 +29,7 @@
   --on-dark-muted: #8DA3D6;
   --on-dark-faint: #A9BBE3;
   --accent-red: #FF6B57;
+  --grid-opacity: .09; /* the hero's background graph: fainter here — on a white page any added colour shows up more than the same alpha would on a dark one */
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -55,6 +56,7 @@
     --border: #243350;
     --shadow: 0 8px 24px rgba(0, 0, 0, .45);
     --shadow-lg: 0 16px 40px rgba(0, 0, 0, .55);
+    --grid-opacity: .22;
   }
 }
 
@@ -73,6 +75,7 @@
   --border: #243350;
   --shadow: 0 8px 24px rgba(0, 0, 0, .45);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, .55);
+  --grid-opacity: .22;
 }
 
 :root[data-theme="dark"] { color-scheme: dark; }
@@ -306,16 +309,60 @@ p { margin: 0; }
   overflow: clip;
 }
 
-/* Soft colour glow behind the headline, not a pattern — fades to white on every side */
-.hero-glow {
+/* A contribution-graph-style background, built by the inline script at the
+   end of the page (hero-grid-bg stays empty, so nothing is missing, if JS
+   is off). Fixed column/row count + 1fr tracks means cell *size* — not
+   count — scales with the viewport, so it's proportional at any width. */
+.hero-grid-bg {
   position: absolute;
+  inset: 0;
   z-index: -1;
-  inset: -20% 0 10%;
-  background:
-    radial-gradient(640px 420px at 30% 10%, color-mix(in srgb, var(--blue) 20%, transparent) 0%, transparent 70%),
-    radial-gradient(560px 380px at 78% 18%, color-mix(in srgb, var(--navy) 16%, transparent) 0%, transparent 70%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
-  mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
+  overflow: hidden;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%);
+}
+
+.hero-grid-cells {
+  position: absolute;
+  inset: -10% -8%;
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 64), 1fr);
+  grid-template-rows: repeat(var(--rows, 22), 1fr);
+  gap: clamp(2px, .35vw, 5px);
+  transform: rotate(-3deg);
+  opacity: var(--grid-opacity); /* the whole texture stays faint — this, not per-cell colour, is what keeps it out of the way of the text above it; lower in light mode, see --grid-opacity. Scoped to the cells only, not .hero-grid-bg, so the spotlight sibling stays unaffected. */
+}
+
+.hero-grid-cells i {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  font-style: normal;
+  background: var(--border);
+}
+.hero-grid-cells .lvl-0 { background: var(--border); }
+.hero-grid-cells .lvl-1 { background: var(--blue); opacity: .35; }
+.hero-grid-cells .lvl-2 { background: var(--blue); opacity: .6; }
+.hero-grid-cells .lvl-3 { background: var(--blue-2); opacity: .8; }
+.hero-grid-cells .lvl-4 { background: var(--navy-fill); }
+.hero-grid-cells i { transition: background-color 1.4s ease, opacity 1.4s ease; }
+
+/* A soft circular highlight that follows the pointer, like the tile hover
+   glow in Windows settings — a single overlay, not per-cell JS. Brighter
+   than the faded cells beneath it so the glow itself stays visible despite
+   .hero-grid-bg's low opacity. */
+.hero-grid-spotlight {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .3s ease;
+  background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(0, 102, 192, .9), transparent 70%);
+  mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-grid-cells i { transition: none; }
 }
 
 .hero-inner { display: grid; justify-items: center; gap: 22px; max-width: 880px; margin: 0 auto; }
@@ -350,6 +397,11 @@ p { margin: 0; }
   letter-spacing: -.035em;
   max-width: 17ch;
   color: var(--ink);
+}
+
+.hero h1 .accent-year {
+  font-style: italic; /* Space Grotesk has no italic cut, so this is a deliberate faux-slant, not an oversight */
+  color: var(--blue-text);
 }
 
 .hero .lede {
