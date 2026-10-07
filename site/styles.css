@@ -39,7 +39,9 @@
    that are already dark in light mode (buttons, badges, the footer, the
    CTA band) and stay exactly as they are. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  /* :not([data-theme="light"]) lets an explicit light choice (the header
+     toggle) override the OS preference below. */
+  :root:not([data-theme="light"]) {
     --navy: #8fb7ff;
     --navy-deep: #0a1730;
     --ink: #e8eefc;
@@ -55,6 +57,26 @@
     --shadow-lg: 0 16px 40px rgba(0, 0, 0, .55);
   }
 }
+
+/* Same palette, for an explicit dark choice when the OS itself prefers light. */
+:root[data-theme="dark"] {
+  --navy: #8fb7ff;
+  --navy-deep: #0a1730;
+  --ink: #e8eefc;
+  --muted: #9fb0cf;
+  --blue-text: #6cb8ff;
+  --bg: #0b1220;
+  --surface: #111a2e;
+  --band: #0e1830;
+  --tint: #14233f;
+  --tint-strong: #1e3a6b;
+  --border: #243350;
+  --shadow: 0 8px 24px rgba(0, 0, 0, .45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, .55);
+}
+
+:root[data-theme="dark"] { color-scheme: dark; }
+:root[data-theme="light"] { color-scheme: light; }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -146,9 +168,13 @@ p { margin: 0; }
 
 .brand-mark {
   width: 34px;
-  height: auto;
+  height: 34px;
   flex: none;
   object-fit: contain;
+  background: var(--white);
+  border-radius: 50%;
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .brand small {
@@ -180,14 +206,16 @@ p { margin: 0; }
 .nav-links a {
   text-decoration: none;
   color: var(--muted);
-  transition: color .15s ease;
+  box-shadow: inset 0 -2px 0 transparent;
+  transition: color .2s ease, box-shadow .2s ease;
 }
 
 .nav-links a:hover, .nav-links a:focus-visible,
 .nav-links a[aria-current="true"] { color: var(--navy); }
 .nav-links a[aria-current="true"] { box-shadow: inset 0 -2px 0 currentColor; }
 
-.nav-ctas { display: flex; gap: 10px; flex: none; }
+.nav-ctas { display: flex; align-items: center; gap: 10px; flex: none; }
+.nav-icons { display: flex; align-items: center; gap: 8px; }
 
 .nav-toggle {
   display: none;
@@ -251,6 +279,22 @@ p { margin: 0; }
 
 .btn-sm { padding: 7px 16px; font-size: 13px; }
 .lang-toggle { font-family: var(--font-mono); min-width: 3.4em; }
+
+.btn-icon { width: 38px; height: 38px; padding: 0; flex: none; }
+.btn-icon .icon { width: 16px; height: 16px; }
+
+/* Shows the icon for the theme currently in effect: sun while light (click
+   for dark), moon while dark (click for light). Pure CSS; .theme-toggle's
+   only job in JS is to set/clear the data-theme override and remember it. */
+.theme-toggle-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle-sun { display: none; }
+  :root:not([data-theme="light"]) .theme-toggle-moon { display: block; }
+}
+:root[data-theme="dark"] .theme-toggle-sun { display: none; }
+:root[data-theme="dark"] .theme-toggle-moon { display: block; }
+:root[data-theme="light"] .theme-toggle-sun { display: block; }
+:root[data-theme="light"] .theme-toggle-moon { display: none; }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -1005,7 +1049,9 @@ img.flag { border-radius: 50%; vertical-align: -3px; }
 .cta-band p { color: var(--on-dark-text); font-size: 16px; margin-top: 10px; max-width: 46ch; }
 .cta-band .actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .cta-band .btn-solid { background: var(--white); color: var(--navy-fill); }
-.cta-band .btn-solid:hover { background: var(--tint); }
+/* A fixed light tint, not the theme's --tint: this button sits on the
+   always-dark CTA band in both themes, so its hover must stay light too. */
+.cta-band .btn-solid:hover { background: color-mix(in srgb, var(--white) 85%, var(--blue)); }
 .cta-band .btn-outline { border-color: rgba(255,255,255,.5); color: var(--white); }
 .cta-band .btn-outline:hover { background: rgba(255,255,255,.14); border-color: var(--white); }
 
@@ -1021,12 +1067,6 @@ footer { background: var(--navy-deep); color: var(--on-dark-text); padding: 60px
 }
 
 .foot-brand .brand { color: var(--white); }
-.foot-brand .brand-mark {
-  background: var(--white);
-  border-radius: 50%;
-  padding: 6px;
-  box-sizing: border-box;
-}
 .foot-brand small { color: var(--on-dark-muted); }
 .foot-brand p { margin-top: 14px; font-size: 13.8px; color: var(--on-dark-faint); max-width: 34ch; }
 
@@ -1113,11 +1153,14 @@ footer { background: var(--navy-deep); color: var(--on-dark-text); padding: 60px
 
   .nav-ctas {
     flex-direction: column;
+    align-items: stretch;
     gap: 10px;
     margin-top: 12px;
   }
 
-  .nav-ctas .btn { width: 100%; }
+  .nav-ctas > .btn { width: 100%; }
+  .nav-icons { width: 100%; }
+  .nav-icons .btn { flex: 1; width: auto; }
 }
 
 @media (max-width: 720px) {
