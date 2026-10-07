@@ -715,7 +715,11 @@ a.step:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; bord
   overflow: hidden;
 }
 
-.week[open] summary {
+/* Scoped to the programme timeline only: a sticky summary recalculates on
+   every frame while its details-content height is also animating, and that
+   fights visibly on taller content like #full-pool (the header appears to
+   drift). The five week cards are short enough that it stays smooth. */
+#programme .week[open] summary {
   position: sticky;
   top: 72px; /* matches section[id] scroll-margin-top, i.e. the sticky nav height */
   z-index: 2;
@@ -762,12 +766,17 @@ a.step:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; bord
 
 .week[open] .chevron { transform: rotate(45deg); }
 
-/* Smooth open/close where supported; details just snaps open/closed otherwise */
+/* Smooth open/close where supported; details just snaps open/closed otherwise.
+   overflow-anchor: none stops Chrome's scroll anchoring from "correcting"
+   the scroll position on every frame of the height animation — without it,
+   taller content (e.g. #full-pool) visibly drifts the page for well past
+   the transition's own duration. */
 @supports (interpolate-size: allow-keywords) {
-  .week { interpolate-size: allow-keywords; }
+  .week { interpolate-size: allow-keywords; overflow-anchor: none; }
   .week::details-content {
     height: 0;
     overflow: hidden;
+    overflow-anchor: none;
     transition: height .3s ease, content-visibility .3s ease allow-discrete;
   }
   .week[open]::details-content { height: auto; }
@@ -904,7 +913,7 @@ tbody td:last-child { white-space: nowrap; color: var(--muted); font-size: 13px;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--blue); }
@@ -914,7 +923,7 @@ tbody td:last-child { white-space: nowrap; color: var(--muted); font-size: 13px;
 .project-card .flag {
   display: inline-flex;
   flex: none;
-  width: 20px; height: 20px;
+  width: 22px; height: 22px;
   border-radius: 50%;
   overflow: hidden; /* circle-flags ship pre-masked, this is only a safety net */
 }
@@ -930,7 +939,7 @@ img.flag { border-radius: 50%; vertical-align: -3px; }
   z-index: 1; /* above the ::after overlay, so its own focus ring still shows */
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 16.5px;
   text-decoration: none;
   color: var(--ink);
   flex: 1;
@@ -939,24 +948,28 @@ img.flag { border-radius: 50%; vertical-align: -3px; }
 .project-card a.name:hover { color: var(--blue-text); }
 .project-card a.name::after { content: ""; position: absolute; inset: 0; z-index: 0; } /* stretches to fill .project-card, the nearest positioned ancestor */
 
-.lang-row { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 14px; }
+/* Real per-language logos (own brand colours baked into the sprite symbol,
+   not currentColor) instead of a generic coloured dot. */
+.lang-row { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 16px; }
 .lang {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   font-size: 12.5px;
   font-weight: 600;
   color: var(--ink);
 }
-.lang::before {
-  content: "";
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--lang-color, var(--muted));
-  flex: none;
+.lang .icon { width: 17px; height: 17px; flex: none; }
+
+.project-card .why {
+  position: relative;
+  z-index: 1;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
 }
 
-.tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag-row { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 2px; }
 
 .tag {
   position: relative;
@@ -972,7 +985,19 @@ img.flag { border-radius: 50%; vertical-align: -3px; }
 
 .tag.level { flex: none; background: var(--tint); border-color: var(--tint-strong); color: var(--navy); }
 
-.project-card .why { position: relative; z-index: 1; font-size: 13.5px; color: var(--muted); }
+/* A small "open it" cue bottom-right, echoing the card's clickability —
+   purely decorative, the whole card is already the link. */
+.project-card::before {
+  content: "\2197";
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  bottom: 18px;
+  font-size: 15px;
+  color: var(--border);
+  transition: color .2s ease, transform .2s ease;
+}
+.project-card:hover::before { color: var(--blue-text); transform: translate(2px, -2px); }
 
 .org-pool {
   display: grid;
@@ -1025,19 +1050,22 @@ img.flag { border-radius: 50%; vertical-align: -3px; }
   .tabs:has(#view-skill:checked) .panel-skill { display: block; }
 }
 
-.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .skill-card {
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  padding: 16px 18px;
+  padding: 20px;
   background: var(--bg);
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
-.skill-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-.skill-head .icon { color: var(--blue-text); }
-.skill-head .who { font-weight: 700; font-family: var(--font-mono); font-size: 12px; color: var(--navy); }
-.skill-card .what { color: var(--muted); font-size: 13.5px; line-height: 1.6; }
-.skill-card .what a { color: var(--blue-text); text-decoration: none; }
-.skill-card .what a:hover { text-decoration: underline; }
+.skill-card:hover { border-color: var(--tint-strong); box-shadow: var(--shadow); }
+.skill-card .icon-box { width: 36px; height: 36px; margin-bottom: 12px; }
+.skill-card .icon-box .icon { width: 18px; height: 18px; }
+.skill-card .who { font-size: 14.5px; margin-bottom: 10px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-tags a.tag { color: var(--blue-text); text-decoration: none; transition: border-color .2s ease, background-color .2s ease; }
+.skill-tags a.tag:hover { border-color: var(--blue); background: var(--tint); }
+.skill-tags a.tag:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; }
 
 /* ---------- Activities / hubs ---------- */
 .hub-card { display: flex; flex-direction: column; gap: 14px; }
@@ -1048,15 +1076,32 @@ img.flag { border-radius: 50%; vertical-align: -3px; }
 /* A hub with a real address: photo on top, optional in markup — a hub
    without one yet (e.g. while waiting on a photo) just starts at the name,
    no broken-image placeholder needed. */
-.hub-location { padding: 0; overflow: hidden; }
-.hub-location > :not(.hub-photo) { margin-left: 20px; margin-right: 20px; }
+.hub-location { padding: 0; }
+.hub-location > :not(.hub-photo-wrap) { margin-left: 20px; margin-right: 20px; }
 .hub-location > :last-child { margin-bottom: 20px; }
+
+.hub-photo-wrap {
+  position: relative;
+  overflow: hidden; /* contains the hover zoom and the fade below */
+}
+.hub-photo-wrap::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+}
 .hub-photo {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto; /* without this the width/height attributes win over aspect-ratio */
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  margin-bottom: 4px;
+  transition: transform .4s ease;
+}
+.hub-location:hover .hub-photo { transform: scale(1.06); }
+@media (prefers-reduced-motion: reduce) {
+  .hub-location:hover .hub-photo { transform: none; }
 }
 .hub-city {
   display: flex;
