@@ -482,6 +482,11 @@ p { margin: 0; }
   opacity: .9;
 }
 
+/* A border that glows at the top and fades to plain as it reaches the
+   bottom, like light spilling down onto the card from just above it — the
+   classic two-background trick: one solid layer clipped to the padding
+   box for the card's own fill, one gradient layer clipped to the border
+   box for the border's colour. The box-shadow adds the glow itself. */
 .stat-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -490,10 +495,12 @@ p { margin: 0; }
   max-width: 920px;
   margin: 48px auto 0;
   padding: 10px;
-  background: var(--bg);
-  border: 1px solid var(--border);
+  border: 1px solid transparent;
   border-radius: 28px;
-  box-shadow: var(--shadow);
+  background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(to bottom, color-mix(in srgb, var(--blue) 70%, transparent) 0%, transparent 60%) border-box;
+  box-shadow: var(--shadow), 0 -16px 36px -20px color-mix(in srgb, var(--blue) 55%, transparent);
 }
 
 .stat { padding: 16px 20px; border-radius: 20px; transition: background-color .2s ease; }
@@ -1097,6 +1104,28 @@ img.flag { border-radius: 50%; vertical-align: -3px; }
   aspect-ratio: 1;
   background: radial-gradient(circle, color-mix(in srgb, var(--blue) 35%, transparent) 0%, transparent 70%);
 }
+
+/* The same contribution-graph texture as the hero, built by the same
+   script — but static here (no interval, no spotlight) and recoloured for
+   a fixed-navy background instead of following the page's own theme,
+   since this band stays dark in both light and dark mode. */
+.cta-band-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+.cta-band-grid .hero-grid-cells {
+  opacity: .16; /* matches the hero's own faintness, not the first, too-bold pass this started from */
+  transform: rotate(-3deg);
+}
+.cta-band-grid .hero-grid-cells i { transition: none; }
+.cta-band-grid .lvl-0 { background: rgba(255, 255, 255, .1); }
+.cta-band-grid .lvl-1 { background: rgba(255, 255, 255, .22); }
+.cta-band-grid .lvl-2 { background: rgba(255, 255, 255, .4); }
+.cta-band-grid .lvl-3 { background: var(--blue-2); }
+.cta-band-grid .lvl-4 { background: var(--blue); }
 .cta-band h2 { color: var(--white); font-size: clamp(26px, 3.6vw, 38px); letter-spacing: -.02em; }
 .cta-band p { color: var(--on-dark-text); font-size: 16px; margin-top: 10px; max-width: 46ch; }
 .cta-band .actions { display: flex; gap: 12px; flex-wrap: wrap; }
