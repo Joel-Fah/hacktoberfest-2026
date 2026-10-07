@@ -755,8 +755,8 @@ try {
         </div>
         <p>Saturday sets the pace — the work continues all week, wherever you are.</p>
       </div>
-      <div class="grid grid-3">
-        <div class="card hub-card">
+      <div class="hubs-grid">
+        <div class="card hub-card hub-card--home">
           <div class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg></div>
           <h3>Hack from Home</h3>
           <p>Participants can work from home and use the OSSCameroon Telegram group to:</p>
@@ -776,7 +776,7 @@ try {
           </a>
         </div>
 
-        <article class="card hub-card hub-location">
+        <article class="card hub-card hub-location hub-card--atori">
           <div class="hub-photo-wrap"><img class="hub-photo" src="assets/hubs/atori-space.jpg" width="1080" height="810" alt="Inside Atori Space, Yaoundé" loading="lazy"></div>
           <h3>Atori Space</h3>
           <p class="hub-city"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Yaoundé</p>
@@ -795,7 +795,7 @@ try {
           </a>
         </article>
 
-        <article class="card hub-card hub-location">
+        <article class="card hub-card hub-location hub-card--mountain">
           <div class="hub-photo-wrap"><img class="hub-photo" src="assets/hubs/mountain-hub.jpg" width="1280" height="960" alt="Mountain Hub, Buea" loading="lazy"></div>
           <h3>Mountain Hub</h3>
           <p class="hub-city"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Top floor, 1st Trust Building, Great Soppo, Buea</p>
@@ -976,6 +976,20 @@ try {
     label(next);
     try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
   });
+})();
+
+(function () {
+  // Opens whichever programme week covers today, so a visitor during the
+  // event lands on the accordion already open on the right week. Only
+  // acts during October 2026 itself; outside that window the page's own
+  // default (week 1 open, in the HTML) stands, same as with JS off.
+  var weeks = document.querySelectorAll('#programme .week[id^="week-"]');
+  if (!weeks.length) return;
+  var today = new Date();
+  if (today.getFullYear() !== 2026 || today.getMonth() !== 9) return;
+  var day = today.getDate();
+  var id = day <= 9 ? 'week-1' : day <= 16 ? 'week-2' : day <= 23 ? 'week-3' : day <= 30 ? 'week-4' : 'week-5';
+  weeks.forEach(function (w) { w.open = (w.id === id); });
 })();
 
 (function () {
