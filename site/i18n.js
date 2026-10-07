@@ -18,6 +18,7 @@
     "SHOW": "MONTRER",
     "START": "DÉMARRER",
     "Telegram Live": "Live Telegram",
+    "SAT": "SAM",
     "#Announcements": "#Annonces",
     "#Help": "#Aide",
     "#Looking-for-Team": "#Cherche-équipe",
