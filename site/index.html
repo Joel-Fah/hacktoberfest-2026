@@ -33,6 +33,7 @@ try {
     <symbol id="i-fire" viewBox="0 0 256 256" fill="currentColor"><path d="M183.89,153.34a57.6,57.6,0,0,1-46.56,46.55A8.75,8.75,0,0,1,136,200a8,8,0,0,1-1.32-15.89c16.57-2.79,30.63-16.85,33.44-33.45a8,8,0,0,1,15.78,2.68ZM216,144a88,88,0,0,1-176,0c0-27.92,11-56.47,32.66-84.85a8,8,0,0,1,11.93-.89l24.12,23.41,22-60.41a8,8,0,0,1,12.63-3.41C165.21,36,216,84.55,216,144Zm-16,0c0-46.09-35.79-85.92-58.21-106.33L119.52,98.74a8,8,0,0,1-13.09,3L80.06,76.16C64.09,99.21,56,122,56,144a72,72,0,0,0,144,0Z"/></symbol>
     <symbol id="i-check-circle" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></symbol>
     <symbol id="i-warning-circle" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-8-80V80a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,172Z"/></symbol>
+    <symbol id="i-code" viewBox="0 0 256 256" fill="currentColor"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"/></symbol>
     <symbol id="i-sun" viewBox="0 0 256 256" fill="currentColor"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></symbol>
     <symbol id="i-moon" viewBox="0 0 256 256" fill="currentColor"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"/></symbol>
   </svg>
@@ -448,66 +449,80 @@ try {
 
       <p class="status-note"><svg class="icon" aria-hidden="true"><use href="#i-warning-circle"/></svg><span><strong>Draft, pending maintainer confirmation.</strong> These are prospects OSSCameroon is reaching out to — not yet the official Featured Projects catalogue. A project only becomes Featured once a maintainer confirms they'll review PRs and issues are prepared.</span></p>
 
-      <h3 style="font-size:16px;margin-bottom:16px">Top 10 — first to contact</h3>
+      <div class="tabs">
+        <div class="tab-bar">
+          <input type="radio" name="contribute-view" id="view-top" checked>
+          <label for="view-top">Top 10 — first to contact</label>
+          <input type="radio" name="contribute-view" id="view-skill">
+          <label for="view-skill">Find a project by skill</label>
+        </div>
+        <div class="panel panel-top">
       <div class="grid grid-2">
 
         <div class="card project-card">
-          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/jobsika">Jobsika</a></div>
-          <div class="tag-row"><span class="tag">Go</span><span class="tag">Frontend</span><span class="tag">Docker</span><span class="tag level">Beginner → Intermediate</span></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/jobsika">Jobsika</a><span class="tag level">Beginner → Intermediate</span></div>
+          <div class="lang-row"><span class="lang" style="--lang-color:#00ADD8">Go</span></div>
+          <div class="tag-row"><span class="tag">Frontend</span><span class="tag">Docker</span></div>
           <p class="why">Cameroon-focused project, clear local relevance, contributor setup documented and many open issues.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/website">OSSCameroon Website</a></div>
-          <div class="tag-row"><span class="tag">TypeScript</span><span class="tag">API</span><span class="tag">Scraping</span><span class="tag level">Beginner → Advanced</span></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/website">OSSCameroon Website</a><span class="tag level">Beginner → Advanced</span></div>
+          <div class="lang-row"><span class="lang" style="--lang-color:#3178C6">TypeScript</span></div>
+          <div class="tag-row"><span class="tag">API</span><span class="tag">Scraping</span></div>
           <p class="why">OSSCameroon can directly mentor contributors and create well-scoped issues before the event.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/place">Place</a></div>
-          <div class="tag-row"><span class="tag">Web</span><span class="tag">Events</span><span class="tag">Docs</span><span class="tag level">Beginner → Intermediate</span></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/place">Place</a><span class="tag level">Beginner → Intermediate</span></div>
+          <div class="tag-row"><span class="tag">Web</span><span class="tag">Events</span><span class="tag">Docs</span></div>
           <p class="why">Cameroon event-discovery application with a concrete user-facing scope.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/js-generator">js-generator</a></div>
-          <div class="tag-row"><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">Testing</span><span class="tag level">Intermediate → Advanced</span></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/js-generator">js-generator</a><span class="tag level">Intermediate → Advanced</span></div>
+          <div class="lang-row"><span class="lang" style="--lang-color:#ED8B00">Java</span><span class="lang" style="--lang-color:#F7DF1E">JavaScript</span></div>
+          <div class="tag-row"><span class="tag">Testing</span></div>
           <p class="why">Strong technical project for contributors who want deeper engineering work.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/lewa">Lewa</a></div>
-          <div class="tag-row"><span class="tag">Python</span><span class="tag">African scripts</span><span class="tag level">Beginner → Intermediate</span></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/lewa">Lewa</a><span class="tag level">Beginner → Intermediate</span></div>
+          <div class="lang-row"><span class="lang" style="--lang-color:#3776AB">Python</span></div>
+          <div class="tag-row"><span class="tag">African scripts</span></div>
           <p class="why">Combines software contribution with African language and cultural impact.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span><a class="name" href="https://github.com/OpenGovAfrica/oga-local-service-atlas">Local Service Atlas</a></div>
-          <div class="tag-row"><span class="tag">Civic tech</span><span class="tag">Geospatial</span><span class="tag">Backend</span><span class="tag level">Beginner → Advanced</span></div>
+          <div class="top"><span class="flag"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span><a class="name" href="https://github.com/OpenGovAfrica/oga-local-service-atlas">Local Service Atlas</a><span class="tag level">Beginner → Advanced</span></div>
+          <div class="tag-row"><span class="tag">Civic tech</span><span class="tag">Geospatial</span><span class="tag">Backend</span></div>
           <p class="why">Designed around civic infrastructure and has a broad contribution surface.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span><a class="name" href="https://github.com/chaoss/chaoss-africa">CHAOSS Africa</a></div>
-          <div class="tag-row"><span class="tag">Community</span><span class="tag">Docs</span><span class="tag">Metrics</span><span class="tag level">Beginner → Intermediate</span></div>
+          <div class="top"><span class="flag"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span><a class="name" href="https://github.com/chaoss/chaoss-africa">CHAOSS Africa</a><span class="tag level">Beginner → Intermediate</span></div>
+          <div class="tag-row"><span class="tag">Community</span><span class="tag">Docs</span><span class="tag">Metrics</span></div>
           <p class="why">Already has experience onboarding contributors around Hacktoberfest.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/ke.svg" width="20" height="20" alt="Kenya" loading="lazy"><a class="name" href="https://github.com/ushahidi/platform-client-mzima">platform-client-mzima</a></div>
-          <div class="tag-row"><span class="tag">TypeScript</span><span class="tag">Maps</span><span class="tag">i18n</span><span class="tag level">Intermediate</span></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/ke.svg" width="20" height="20" alt="Kenya" loading="lazy"><a class="name" href="https://github.com/ushahidi/platform-client-mzima">platform-client-mzima</a><span class="tag level">Intermediate</span></div>
+          <div class="lang-row"><span class="lang" style="--lang-color:#3178C6">TypeScript</span></div>
+          <div class="tag-row"><span class="tag">Maps</span><span class="tag">i18n</span></div>
           <p class="why">Mature African open-source product with active releases and a substantial issue backlog.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/ke.svg" width="20" height="20" alt="Kenya" loading="lazy"><a class="name" href="https://github.com/AfricasTalkingLtd/africastalking-java">Africa's Talking — Java SDK</a></div>
-          <div class="tag-row"><span class="tag">Java</span><span class="tag">SDK</span><span class="tag">Tests</span><span class="tag level">Intermediate</span></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/ke.svg" width="20" height="20" alt="Kenya" loading="lazy"><a class="name" href="https://github.com/AfricasTalkingLtd/africastalking-java">Africa's Talking — Java SDK</a><span class="tag level">Intermediate</span></div>
+          <div class="lang-row"><span class="lang" style="--lang-color:#ED8B00">Java</span></div>
+          <div class="tag-row"><span class="tag">SDK</span><span class="tag">Tests</span></div>
           <p class="why">Contribution to a real production SDK used by developers building communications products.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span><a class="name" href="https://github.com/CodeForAfrica/africa-mining-watch">Africa Mining Watch</a></div>
-          <div class="tag-row"><span class="tag">Python</span><span class="tag">Data</span><span class="tag">Maps</span><span class="tag level">Intermediate</span></div>
+          <div class="top"><span class="flag"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span><a class="name" href="https://github.com/CodeForAfrica/africa-mining-watch">Africa Mining Watch</a><span class="tag level">Intermediate</span></div>
+          <div class="lang-row"><span class="lang" style="--lang-color:#3776AB">Python</span></div>
+          <div class="tag-row"><span class="tag">Data</span><span class="tag">Maps</span></div>
           <p class="why">Strong Africa-specific open-data use case with room for data and engineering contributions.</p>
         </div>
 
@@ -515,6 +530,65 @@ try {
 
       <div style="margin-top:14px">
         <p style="font-size:13.8px;color:var(--muted)"><strong>First contact target:</strong> secure 5–8 confirmed Featured Projects — a mix of 3–4 Cameroon projects, 2–3 from other African communities, at least one beginner-friendly, one data/documentation project, and one advanced engineering project.</p>
+      </div>
+
+        </div>
+        <div class="panel panel-skill">
+          <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">First contribution</span></div>
+          <p class="what"><a href="https://github.com/osscameroon/website">OSSCameroon website</a>, <a href="https://github.com/osscameroon/place">Place</a>, <a href="https://github.com/osscameroon/lewa">Lewa</a>, <a href="https://github.com/chaoss/chaoss-africa">CHAOSS Africa</a>, <a href="https://github.com/oscafrica/chapters-directory">OSCA chapters directory</a></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">Frontend / TS</span></div>
+          <p class="what"><a href="https://github.com/osscameroon/website">OSSCameroon website</a>, <a href="https://github.com/osscameroon/place">Place</a>, OSCA, <a href="https://github.com/ushahidi/platform-client-mzima">Ushahidi client</a>, <a href="https://github.com/CodeForAfrica/pesacheck-ui">PesaCheck UI</a></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">Backend</span></div>
+          <p class="what"><a href="https://github.com/osscameroon/jobsika">Jobsika</a>, OpenGov Africa, <a href="https://github.com/CodeForAfrica/api">Code for Africa API</a>, <a href="https://github.com/chaoss/AFOS-API">AFOS API</a>, <a href="https://github.com/ushahidi/platform">Ushahidi platform</a></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">Go</span></div>
+          <p class="what"><a href="https://github.com/osscameroon/jobsika">Jobsika</a></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">Java</span></div>
+          <p class="what"><a href="https://github.com/osscameroon/js-generator">js-generator</a>, <a href="https://github.com/AfricasTalkingLtd/africastalking-java">Africa's Talking Java SDK</a></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">Python</span></div>
+          <p class="what"><a href="https://github.com/AfricasTalkingLtd/africastalking-python">Africa's Talking Python SDK</a>, Code for Africa, Masakhane</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">Node.js</span></div>
+          <p class="what"><a href="https://github.com/AfricasTalkingLtd/africastalking-node.js">Africa's Talking Node SDK</a>, <a href="https://github.com/chaoss/AFOS-API">AFOS API</a></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">Data / civic tech</span></div>
+          <p class="what">OpenGov Africa, <a href="https://github.com/CodeForAfrica/africa-mining-watch">Africa Mining Watch</a>, <a href="https://github.com/CodeForAfrica/PromiseTracker">PromiseTracker</a></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">DevOps / SRE</span></div>
+          <p class="what"><a href="https://github.com/CodeForAfrica/probeview">Code for Africa Probeview</a>, <a href="https://github.com/osscameroon/jobsika">Jobsika Docker setup</a></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">Embedded / IoT</span></div>
+          <p class="what"><a href="https://github.com/CodeForAfrica/sensors.AFRICA-ESP32-Quectel-Firmware">sensors.AFRICA ESP32 firmware</a></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">AI / NLP</span></div>
+          <p class="what"><a href="https://github.com/masakhane-io/afriscience_mt">AfriScience-MT</a>, <a href="https://github.com/masakhane-io/masakhane-ner">MasakhaNER</a></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">Docs / non-code</span></div>
+          <p class="what"><a href="https://github.com/chaoss/chaoss-africa">CHAOSS Africa</a>, <a href="https://github.com/osscameroon/lewa">Lewa</a>, SDK docs, community websites</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-head"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><span class="who">Languages / i18n</span></div>
+          <p class="what"><a href="https://github.com/osscameroon/lewa">Lewa</a>, Masakhane, Ushahidi localisation</p>
+        </div>
+          </div>
+        </div>
       </div>
 
       <h3 style="font-size:16px;margin:40px 0 4px">Full pool — 30 candidates across 8 communities</h3>
@@ -641,23 +715,6 @@ try {
 
         </div>
       </details>
-
-      <h3 style="font-size:16px;margin:44px 0 16px">Find a project by skill</h3>
-      <div class="skills-grid">
-        <div class="skill-row"><span class="who">First contribution</span><span class="what">OSSCameroon website, Place, Lewa, CHAOSS Africa, OSCA chapters directory</span></div>
-        <div class="skill-row"><span class="who">Frontend / TS</span><span class="what">OSSCameroon website, Place, OSCA, Ushahidi client, PesaCheck UI</span></div>
-        <div class="skill-row"><span class="who">Backend</span><span class="what">Jobsika, OpenGov Africa, Code for Africa API, AFOS API, Ushahidi platform</span></div>
-        <div class="skill-row"><span class="who">Go</span><span class="what">Jobsika</span></div>
-        <div class="skill-row"><span class="who">Java</span><span class="what">js-generator, Africa's Talking Java SDK</span></div>
-        <div class="skill-row"><span class="who">Python</span><span class="what">Africa's Talking Python SDK, Code for Africa, Masakhane</span></div>
-        <div class="skill-row"><span class="who">Node.js</span><span class="what">Africa's Talking Node SDK, AFOS API</span></div>
-        <div class="skill-row"><span class="who">Data / civic tech</span><span class="what">OpenGov Africa, Africa Mining Watch, PromiseTracker</span></div>
-        <div class="skill-row"><span class="who">DevOps / SRE</span><span class="what">Code for Africa Probeview, Jobsika Docker setup</span></div>
-        <div class="skill-row"><span class="who">Embedded / IoT</span><span class="what">sensors.AFRICA ESP32 firmware</span></div>
-        <div class="skill-row"><span class="who">AI / NLP</span><span class="what">AfriScience-MT, MasakhaNER</span></div>
-        <div class="skill-row"><span class="who">Docs / non-code</span><span class="what">CHAOSS Africa, Lewa, SDK docs, community websites</span></div>
-        <div class="skill-row"><span class="who">Languages / i18n</span><span class="what">Lewa, Masakhane, Ushahidi localisation</span></div>
-      </div>
 
       <div class="card callout" style="margin-top:40px">
         <h3><svg class="icon" aria-hidden="true"><use href="#i-check-circle"/></svg>Quality over quantity</h3>
