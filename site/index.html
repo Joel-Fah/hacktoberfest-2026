@@ -6,12 +6,36 @@
 <title>Hacktoberfest Cameroon 2026</title>
 <meta name="description" content="4 weeks. 4 sprints. Multiple hubs. One open-source community. Hacktoberfest Cameroon 2026 — organised by OSSCameroon, with Atori Space, MODULIS Tech and partner hubs, 3–31 October 2026.">
 <link rel="icon" type="image/svg+xml" href="assets/oss-logo.svg">
+<script>
+// Runs before first paint so a saved theme choice applies immediately,
+// with no flash of the OS-default theme. No-op if nothing was saved.
+try {
+  var t = localStorage.getItem('hf26-theme');
+  if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+} catch (e) {}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-telegram-logo" viewBox="0 0 256 256" fill="currentColor"><path d="M228.88,26.19a9,9,0,0,0-9.16-1.57L17.06,103.93a14.22,14.22,0,0,0,2.43,27.21L72,141.45V200a15.92,15.92,0,0,0,10,14.83,15.91,15.91,0,0,0,17.51-3.73l25.32-26.26L165,220a15.88,15.88,0,0,0,10.51,4,16.3,16.3,0,0,0,5-.79,15.85,15.85,0,0,0,10.67-11.63L231.77,35A9,9,0,0,0,228.88,26.19Zm-61.14,36L78.15,126.35l-49.6-9.73ZM88,200V152.52l24.79,21.74Zm87.53,8L92.85,135.5l119-85.29Z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,16a87.5,87.5,0,0,1,48,14.28V74L153.83,99.74,122.36,104l-.31-.22L102.38,90.92A16,16,0,0,0,79.87,95.1L58.93,126.4a16,16,0,0,0-2.7,8.81L56,171.44l-3.27,2.15A88,88,0,0,1,128,40ZM62.29,186.47l2.52-1.65A16,16,0,0,0,72,171.53l.21-36.23L93.17,104a3.62,3.62,0,0,0,.32.22l19.67,12.87a15.94,15.94,0,0,0,11.35,2.77L156,115.59a16,16,0,0,0,10-5.41l22.17-25.76A16,16,0,0,0,192,74V67.67A87.87,87.87,0,0,1,211.77,155l-16.14-14.76a16,16,0,0,0-16.93-3l-30.46,12.65a16.08,16.08,0,0,0-9.68,12.45l-2.39,16.19a16,16,0,0,0,11.77,17.81L169.4,202l2.36,2.37A87.88,87.88,0,0,1,62.29,186.47ZM185,195l-4.3-4.31a16,16,0,0,0-7.26-4.18L152,180.85l2.39-16.19L184.84,152,205,170.48A88.43,88.43,0,0,1,185,195Z"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 256 256" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></symbol>
+    <symbol id="i-house" viewBox="0 0 256 256" fill="currentColor"><path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z"/></symbol>
+    <symbol id="i-confetti" viewBox="0 0 256 256" fill="currentColor"><path d="M111.49,52.63a15.8,15.8,0,0,0-26,5.77L33,202.78A15.83,15.83,0,0,0,47.76,224a16,16,0,0,0,5.46-1l144.37-52.5a15.8,15.8,0,0,0,5.78-26Zm-8.33,135.21-35-35,13.16-36.21,58.05,58.05Zm-55,20,14-38.41,24.45,24.45ZM156,168.64,87.36,100l13-35.87,91.43,91.43ZM160,72a37.8,37.8,0,0,1,3.84-15.58C169.14,45.83,179.14,40,192,40c6.7,0,11-2.29,13.65-7.21A22,22,0,0,0,208,23.94,8,8,0,0,1,224,24c0,12.86-8.52,32-32,32-6.7,0-11,2.29-13.65,7.21A22,22,0,0,0,176,72.06,8,8,0,0,1,160,72ZM136,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm101.66,82.34a8,8,0,1,1-11.32,11.31l-16-16a8,8,0,0,1,11.32-11.32Zm4.87-42.75-24,8a8,8,0,0,1-5.06-15.18l24-8a8,8,0,0,1,5.06,15.18Z"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 256 256" fill="currentColor"><path d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"/></symbol>
+    <symbol id="i-rocket-launch" viewBox="0 0 256 256" fill="currentColor"><path d="M223.85,47.12a16,16,0,0,0-15-15c-12.58-.75-44.73.4-71.41,27.07L132.69,64H74.36A15.91,15.91,0,0,0,63,68.68L28.7,103a16,16,0,0,0,9.07,27.16l38.47,5.37,44.21,44.21,5.37,38.49a15.94,15.94,0,0,0,10.78,12.92,16.11,16.11,0,0,0,5.1.83A15.91,15.91,0,0,0,153,227.3L187.32,193A15.91,15.91,0,0,0,192,181.64V123.31l4.77-4.77C223.45,91.86,224.6,59.71,223.85,47.12ZM74.36,80h42.33L77.16,119.52,40,114.34Zm74.41-9.45a76.65,76.65,0,0,1,59.11-22.47,76.46,76.46,0,0,1-22.42,59.16L128,164.68,91.32,128ZM176,181.64,141.67,216l-5.19-37.17L176,139.31Zm-74.16,9.5C97.34,201,82.29,224,40,224a8,8,0,0,1-8-8c0-42.29,23-57.34,32.86-61.85a8,8,0,0,1,6.64,14.56c-6.43,2.93-20.62,12.36-23.12,38.91,26.55-2.5,36-16.69,38.91-23.12a8,8,0,1,1,14.56,6.64Z"/></symbol>
+    <symbol id="i-robot" viewBox="0 0 256 256" fill="currentColor"><path d="M200,48H136V16a8,8,0,0,0-16,0V48H56A32,32,0,0,0,24,80V192a32,32,0,0,0,32,32H200a32,32,0,0,0,32-32V80A32,32,0,0,0,200,48Zm16,144a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V80A16,16,0,0,1,56,64H200a16,16,0,0,1,16,16Zm-52-56H92a28,28,0,0,0,0,56h72a28,28,0,0,0,0-56Zm-24,16v24H116V152ZM80,164a12,12,0,0,1,12-12h8v24H92A12,12,0,0,1,80,164Zm84,12h-8V152h8a12,12,0,0,1,0,24ZM72,108a12,12,0,1,1,12,12A12,12,0,0,1,72,108Zm88,0a12,12,0,1,1,12,12A12,12,0,0,1,160,108Z"/></symbol>
+    <symbol id="i-plant" viewBox="0 0 256 256" fill="currentColor"><path d="M247.63,47.89a8,8,0,0,0-7.52-7.52c-51.76-3-93.32,12.74-111.18,42.22-11.8,19.49-11.78,43.16-.16,65.74a71.34,71.34,0,0,0-14.17,27L98.33,159c7.82-16.33,7.52-33.35-1-47.49-13.2-21.79-43.67-33.47-81.5-31.25a8,8,0,0,0-7.52,7.52c-2.23,37.83,9.46,68.3,31.25,81.5A45.82,45.82,0,0,0,63.44,176,54.58,54.58,0,0,0,87,170.33l25,25V224a8,8,0,0,0,16,0V194.51a55.61,55.61,0,0,1,12.27-35,73.91,73.91,0,0,0,33.31,8.4,60.9,60.9,0,0,0,31.83-8.86C234.89,141.21,250.67,99.65,247.63,47.89ZM47.81,155.6C32.47,146.31,23.79,124.32,24,96c28.32-.24,50.31,8.47,59.6,23.81,4.85,8,5.64,17.33,2.46,26.94L61.65,122.34a8,8,0,0,0-11.31,11.31l24.41,24.41C65.14,161.24,55.82,160.45,47.81,155.6Zm149.31-10.22c-13.4,8.11-29.15,8.73-45.15,2l53.69-53.7a8,8,0,0,0-11.31-11.31L140.65,136c-6.76-16-6.15-31.76,2-45.15,13.94-23,47-35.82,89.33-34.83C232.94,98.34,220.14,131.44,197.12,145.38Z"/></symbol>
+    <symbol id="i-fire" viewBox="0 0 256 256" fill="currentColor"><path d="M183.89,153.34a57.6,57.6,0,0,1-46.56,46.55A8.75,8.75,0,0,1,136,200a8,8,0,0,1-1.32-15.89c16.57-2.79,30.63-16.85,33.44-33.45a8,8,0,0,1,15.78,2.68ZM216,144a88,88,0,0,1-176,0c0-27.92,11-56.47,32.66-84.85a8,8,0,0,1,11.93-.89l24.12,23.41,22-60.41a8,8,0,0,1,12.63-3.41C165.21,36,216,84.55,216,144Zm-16,0c0-46.09-35.79-85.92-58.21-106.33L119.52,98.74a8,8,0,0,1-13.09,3L80.06,76.16C64.09,99.21,56,122,56,144a72,72,0,0,0,144,0Z"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></symbol>
+    <symbol id="i-warning-circle" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-8-80V80a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,172Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 256 256" fill="currentColor"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 256 256" fill="currentColor"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"/></symbol>
+  </svg>
 
 <header class="nav">
   <div class="nav-inner">
@@ -32,9 +56,17 @@
         </ul>
       </nav>
       <div class="nav-ctas">
-        <button class="btn btn-outline btn-sm lang-toggle" id="langToggle" type="button" lang="fr" aria-label="FR — Passer en français">FR</button>
         <a class="btn btn-solid btn-sm" href="https://forms.gle/4MFu8jjGcxcK2XFG9" target="_blank" rel="noopener">Register</a>
-        <a class="btn btn-solid btn-sm" href="https://t.me/+UpKZh_KXTaTx7JD7" target="_blank" rel="noopener">Join Telegram</a>
+        <div class="nav-icons">
+          <button class="btn btn-outline btn-sm lang-toggle" id="langToggle" type="button" lang="fr" aria-label="FR — Passer en français">FR</button>
+          <button class="btn btn-outline btn-sm btn-icon theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">
+            <svg class="icon theme-toggle-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+            <svg class="icon theme-toggle-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          </button>
+          <a class="btn btn-solid btn-sm btn-icon" href="https://t.me/+UpKZh_KXTaTx7JD7" target="_blank" rel="noopener" aria-label="Join Telegram">
+            <svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -48,7 +80,7 @@
     <div class="wrap hero-inner">
       <div class="hero-pills">
         <span class="pill pill--muted"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m14 4 6 6-9 9-6.5 1.5L6 13.5 14 4Z"/><path d="m12.5 6 5.5 5.5"/></svg>Build all week</span>
-        <span class="pill">🎉 3 – 31 OCTOBER 2026</span>
+        <span class="pill"><svg class="icon" aria-hidden="true"><use href="#i-confetti"/></svg>3 – 31 OCTOBER 2026</span>
         <span class="pill pill--muted"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 9.5 8.5 3.5 9l4.5 4L6.5 19 12 15.8 17.5 19 16 13l4.5-4-6-.5L12 3Z"/></svg>Show what you made</span>
       </div>
       <h1>Hacktoberfest Cameroon 2026</h1>
@@ -112,23 +144,24 @@
         <p>Saturdays are for learning, kicking off sprints, finding a team, getting help and showing progress. The work then continues all week — from home, Atori Space or the other hubs.</p>
       </div>
       <div class="grid grid-4">
-        <div class="card">
-          <div class="icon">🌍</div>
+        <a class="card card--invert" href="https://t.me/+UpKZh_KXTaTx7JD7" target="_blank" rel="noopener">
+          <div class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg></div>
           <h3>Telegram OSSCameroon</h3>
-          <p>Live sessions, workshops, panels, announcements and national coordination. <a href="https://t.me/+UpKZh_KXTaTx7JD7" target="_blank" rel="noopener">Join the group →</a></p>
-        </div>
+          <p>Live sessions, workshops, panels, announcements and national coordination.</p>
+          <span class="card-link">Join the group →</span>
+        </a>
         <div class="card">
-          <div class="icon">📍</div>
+          <div class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg></div>
           <h3>Atori Space &amp; hubs</h3>
           <p>Hacking, mentoring, meetups and local Show &amp; Tell.</p>
         </div>
         <div class="card">
-          <div class="icon">🏠</div>
+          <div class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg></div>
           <h3>Remote</h3>
           <p>Contribute and build from home, with support from the community.</p>
         </div>
         <div class="card">
-          <div class="icon">🎉</div>
+          <div class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-confetti"/></svg></div>
           <h3>Finale — 31 October</h3>
           <p>Bringing together projects, contributors, communities and partners.</p>
         </div>
@@ -149,17 +182,17 @@
       <div class="grid grid-3">
         <div class="card track-card">
           <span class="badge">Track 01</span>
-          <h3>🛠 Contribute Track</h3>
+          <h3><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg>Contribute Track</h3>
           <p>Contribute to existing open-source projects: code, documentation, translation, design, tests, bug reports or community improvements.</p>
         </div>
         <div class="card track-card build">
           <span class="badge">Track 02</span>
-          <h3>🚀 Build Track</h3>
+          <h3><svg class="icon" aria-hidden="true"><use href="#i-rocket-launch"/></svg>Build Track</h3>
           <p>Build a new open-source project as a team that meets a real need, then publish a first usable version.</p>
         </div>
         <div class="card track-card ai">
           <span class="badge">Optional</span>
-          <h3>🤖 Open AI Challenge</h3>
+          <h3><svg class="icon" aria-hidden="true"><use href="#i-robot"/></svg>Open AI Challenge</h3>
           <p>Build a useful open-source project with open-source AI technology or an open-weight model. AI is never required to take part in the month.</p>
         </div>
       </div>
@@ -181,31 +214,31 @@
         <a class="step" href="#week-1">
           <div class="dot">1</div>
           <div class="date">3 October</div>
-          <h4>🌱 START</h4>
+          <h4><svg class="icon" aria-hidden="true"><use href="#i-plant"/></svg>START</h4>
           <p>Learn how to contribute.</p>
         </a>
         <a class="step" href="#week-2">
           <div class="dot">2</div>
           <div class="date">10 October</div>
-          <h4>🛠 CONTRIBUTE</h4>
+          <h4><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg>CONTRIBUTE</h4>
           <p>Work on something useful.</p>
         </a>
         <a class="step" href="#week-3">
           <div class="dot">3</div>
           <div class="date">17 October</div>
-          <h4>🤖 EXPLORE</h4>
+          <h4><svg class="icon" aria-hidden="true"><use href="#i-robot"/></svg>EXPLORE</h4>
           <p>Explore AI × Open Source.</p>
         </a>
         <a class="step" href="#week-4">
           <div class="dot">4</div>
           <div class="date">24 October</div>
-          <h4>🔥 SHIP</h4>
+          <h4><svg class="icon" aria-hidden="true"><use href="#i-fire"/></svg>SHIP</h4>
           <p>Finish what you started.</p>
         </a>
         <a class="step is-final" href="#week-5">
           <div class="dot">5</div>
           <div class="date">31 October</div>
-          <h4>🎉 SHOW</h4>
+          <h4><svg class="icon" aria-hidden="true"><use href="#i-confetti"/></svg>SHOW</h4>
           <p>Show Cameroon what we built.</p>
         </a>
       </div>
@@ -226,13 +259,13 @@
             <table>
               <thead><tr><th>Time</th><th>Activity</th><th>Format</th></tr></thead>
               <tbody>
-                <tr><td>10:00–10:20</td><td>Opening: programme, hubs, tracks, challenges and partners</td><td>🌍 Telegram Live + 📍 Hubs</td></tr>
-                <tr><td>10:20–11:20</td><td>Workshop: <strong>Your First Open Source Contribution</strong></td><td>🌍 Telegram Live + 📍 Hubs</td></tr>
-                <tr><td>11:20–12:30</td><td>Project discovery, track selection and team forming</td><td>📍 Hubs + 🏠 Online</td></tr>
-                <tr><td>12:30–13:30</td><td>Break and networking</td><td>📍 Hubs</td></tr>
-                <tr><td>13:30–13:50</td><td>Sponsor Engineering Spotlight: <strong>Show us what you build</strong></td><td>🌍 Telegram Live + 📍 Hubs</td></tr>
-                <tr><td>13:50–17:00</td><td>Open Hacking: contributions, mentoring and pair programming</td><td>📍 Hubs + 🏠 Online</td></tr>
-                <tr><td>17:00–18:00</td><td>Local Show &amp; Tell</td><td>📍 Each hub</td></tr>
+                <tr><td>10:00–10:20</td><td>Opening: programme, hubs, tracks, challenges and partners</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>Telegram Live</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>10:20–11:20</td><td>Workshop: <strong>Your First Open Source Contribution</strong></td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>Telegram Live</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>11:20–12:30</td><td>Project discovery, track selection and team forming</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Online</span></span></td></tr>
+                <tr><td>12:30–13:30</td><td>Break and networking</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>13:30–13:50</td><td>Sponsor Engineering Spotlight: <strong>Show us what you build</strong></td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>Telegram Live</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>13:50–17:00</td><td>Open Hacking: contributions, mentoring and pair programming</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Online</span></span></td></tr>
+                <tr><td>17:00–18:00</td><td>Local Show &amp; Tell</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Each hub</span></span></td></tr>
               </tbody>
             </table>
           </div>
@@ -264,13 +297,13 @@
             <table>
               <thead><tr><th>Time</th><th>Activity</th><th>Format</th></tr></thead>
               <tbody>
-                <tr><td>10:00–10:45</td><td>Workshop: <strong>From Issue to Pull Request</strong></td><td>🌍 Telegram Live + 📍 Hubs</td></tr>
-                <tr><td>10:45–11:15</td><td>Open Source Project Pitches: about 5 projects × 5 minutes</td><td>🌍 Telegram Live + 📍 Hubs</td></tr>
-                <tr><td>11:15–13:00</td><td>Open Hacking</td><td>📍 Hubs + 🏠 Online</td></tr>
-                <tr><td>13:00–14:00</td><td>Break and networking</td><td>📍 Hubs</td></tr>
-                <tr><td>14:00–14:20</td><td>Sponsor Engineering Spotlight</td><td>🌍 Telegram Live + 📍 Hubs</td></tr>
-                <tr><td>14:20–17:00</td><td>Open Hacking and mentoring</td><td>📍 Hubs + 🏠 Online</td></tr>
-                <tr><td>17:00–18:00</td><td>Local Show &amp; Tell: <strong>What did you ship this week?</strong></td><td>📍 Each hub</td></tr>
+                <tr><td>10:00–10:45</td><td>Workshop: <strong>From Issue to Pull Request</strong></td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>Telegram Live</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>10:45–11:15</td><td>Open Source Project Pitches: about 5 projects × 5 minutes</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>Telegram Live</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>11:15–13:00</td><td>Open Hacking</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Online</span></span></td></tr>
+                <tr><td>13:00–14:00</td><td>Break and networking</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>14:00–14:20</td><td>Sponsor Engineering Spotlight</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>Telegram Live</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>14:20–17:00</td><td>Open Hacking and mentoring</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Online</span></span></td></tr>
+                <tr><td>17:00–18:00</td><td>Local Show &amp; Tell: <strong>What did you ship this week?</strong></td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Each hub</span></span></td></tr>
               </tbody>
             </table>
           </div>
@@ -302,13 +335,13 @@
             <table>
               <thead><tr><th>Time</th><th>Activity</th><th>Format</th></tr></thead>
               <tbody>
-                <tr><td>10:00–10:45</td><td>Panel: <strong>AI × Open Source — What Changes Now?</strong></td><td>🌍 Telegram Live + 📍 Hubs</td></tr>
-                <tr><td>10:45–11:45</td><td>Hands-on workshop: <strong>Building with Open Source AI</strong></td><td>🌍 Telegram Live + 📍 Hubs</td></tr>
-                <tr><td>11:45–13:00</td><td>Open Hacking</td><td>📍 Hubs + 🏠 Online</td></tr>
-                <tr><td>13:00–14:00</td><td>Break and networking</td><td>📍 Hubs</td></tr>
-                <tr><td>14:00–14:20</td><td>Sponsor Engineering Spotlight: <strong>How We Use Open Source AI</strong></td><td>🌍 Telegram Live + 📍 Hubs</td></tr>
-                <tr><td>14:20–17:00</td><td>Open Hacking — AI projects or any other OSS project</td><td>📍 Hubs + 🏠 Online</td></tr>
-                <tr><td>17:00–18:00</td><td>Local Show &amp; Tell</td><td>📍 Each hub</td></tr>
+                <tr><td>10:00–10:45</td><td>Panel: <strong>AI × Open Source — What Changes Now?</strong></td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>Telegram Live</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>10:45–11:45</td><td>Hands-on workshop: <strong>Building with Open Source AI</strong></td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>Telegram Live</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>11:45–13:00</td><td>Open Hacking</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Online</span></span></td></tr>
+                <tr><td>13:00–14:00</td><td>Break and networking</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>14:00–14:20</td><td>Sponsor Engineering Spotlight: <strong>How We Use Open Source AI</strong></td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>Telegram Live</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>14:20–17:00</td><td>Open Hacking — AI projects or any other OSS project</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Online</span></span></td></tr>
+                <tr><td>17:00–18:00</td><td>Local Show &amp; Tell</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Each hub</span></span></td></tr>
               </tbody>
             </table>
           </div>
@@ -338,12 +371,12 @@
             <table>
               <thead><tr><th>Time</th><th>Activity</th><th>Format</th></tr></thead>
               <tbody>
-                <tr><td>10:00–10:30</td><td>Quick workshop: <strong>Make Your Project Contributor-Ready</strong></td><td>🌍 Telegram Live + 📍 Hubs</td></tr>
-                <tr><td>10:30–10:50</td><td>Sponsor Engineering Spotlight</td><td>🌍 Telegram Live + 📍 Hubs</td></tr>
-                <tr><td>10:50–13:00</td><td>Open Hacking</td><td>📍 Hubs + 🏠 Online</td></tr>
-                <tr><td>13:00–14:00</td><td>Break and networking</td><td>📍 Hubs</td></tr>
-                <tr><td>14:00–17:00</td><td>Open Hacking and demo prep</td><td>📍 Hubs + 🏠 Online</td></tr>
-                <tr><td>17:00–18:00</td><td>Local Show &amp; Tell and finale selection</td><td>📍 Each hub</td></tr>
+                <tr><td>10:00–10:30</td><td>Quick workshop: <strong>Make Your Project Contributor-Ready</strong></td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>Telegram Live</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>10:30–10:50</td><td>Sponsor Engineering Spotlight</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-telegram-logo"/></svg>Telegram Live</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>10:50–13:00</td><td>Open Hacking</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Online</span></span></td></tr>
+                <tr><td>13:00–14:00</td><td>Break and networking</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span></span></td></tr>
+                <tr><td>14:00–17:00</td><td>Open Hacking and demo prep</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Hubs</span><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg>Online</span></span></td></tr>
+                <tr><td>17:00–18:00</td><td>Local Show &amp; Tell and finale selection</td><td><span class="fmt-row"><span class="fmt-chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Each hub</span></span></td></tr>
               </tbody>
             </table>
           </div>
@@ -413,67 +446,67 @@
         <p>A curated shortlist so contributions are useful, not random — instead of searching GitHub cold, pick a project below and start from a maintained issue.</p>
       </div>
 
-      <p class="status-note">🚧 <span><strong>Draft, pending maintainer confirmation.</strong> These are prospects OSSCameroon is reaching out to — not yet the official Featured Projects catalogue. A project only becomes Featured once a maintainer confirms they'll review PRs and issues are prepared.</span></p>
+      <p class="status-note"><svg class="icon" aria-hidden="true"><use href="#i-warning-circle"/></svg><span><strong>Draft, pending maintainer confirmation.</strong> These are prospects OSSCameroon is reaching out to — not yet the official Featured Projects catalogue. A project only becomes Featured once a maintainer confirms they'll review PRs and issues are prepared.</span></p>
 
       <h3 style="font-size:16px;margin-bottom:16px">Top 10 — first to contact</h3>
       <div class="grid grid-2">
 
         <div class="card project-card">
-          <div class="top"><span class="flag">🇨🇲</span><a class="name" href="https://github.com/osscameroon/jobsika">Jobsika</a></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/jobsika">Jobsika</a></div>
           <div class="tag-row"><span class="tag">Go</span><span class="tag">Frontend</span><span class="tag">Docker</span><span class="tag level">Beginner → Intermediate</span></div>
           <p class="why">Cameroon-focused project, clear local relevance, contributor setup documented and many open issues.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag">🇨🇲</span><a class="name" href="https://github.com/osscameroon/website">OSSCameroon Website</a></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/website">OSSCameroon Website</a></div>
           <div class="tag-row"><span class="tag">TypeScript</span><span class="tag">API</span><span class="tag">Scraping</span><span class="tag level">Beginner → Advanced</span></div>
           <p class="why">OSSCameroon can directly mentor contributors and create well-scoped issues before the event.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag">🇨🇲</span><a class="name" href="https://github.com/osscameroon/place">Place</a></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/place">Place</a></div>
           <div class="tag-row"><span class="tag">Web</span><span class="tag">Events</span><span class="tag">Docs</span><span class="tag level">Beginner → Intermediate</span></div>
           <p class="why">Cameroon event-discovery application with a concrete user-facing scope.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag">🇨🇲</span><a class="name" href="https://github.com/osscameroon/js-generator">js-generator</a></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/js-generator">js-generator</a></div>
           <div class="tag-row"><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">Testing</span><span class="tag level">Intermediate → Advanced</span></div>
           <p class="why">Strong technical project for contributors who want deeper engineering work.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag">🇨🇲</span><a class="name" href="https://github.com/osscameroon/lewa">Lewa</a></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="20" height="20" alt="Cameroon" loading="lazy"><a class="name" href="https://github.com/osscameroon/lewa">Lewa</a></div>
           <div class="tag-row"><span class="tag">Python</span><span class="tag">African scripts</span><span class="tag level">Beginner → Intermediate</span></div>
           <p class="why">Combines software contribution with African language and cultural impact.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag">🌍</span><a class="name" href="https://github.com/OpenGovAfrica/oga-local-service-atlas">Local Service Atlas</a></div>
+          <div class="top"><span class="flag"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span><a class="name" href="https://github.com/OpenGovAfrica/oga-local-service-atlas">Local Service Atlas</a></div>
           <div class="tag-row"><span class="tag">Civic tech</span><span class="tag">Geospatial</span><span class="tag">Backend</span><span class="tag level">Beginner → Advanced</span></div>
           <p class="why">Designed around civic infrastructure and has a broad contribution surface.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag">🌍</span><a class="name" href="https://github.com/chaoss/chaoss-africa">CHAOSS Africa</a></div>
+          <div class="top"><span class="flag"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span><a class="name" href="https://github.com/chaoss/chaoss-africa">CHAOSS Africa</a></div>
           <div class="tag-row"><span class="tag">Community</span><span class="tag">Docs</span><span class="tag">Metrics</span><span class="tag level">Beginner → Intermediate</span></div>
           <p class="why">Already has experience onboarding contributors around Hacktoberfest.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag">🇰🇪</span><a class="name" href="https://github.com/ushahidi/platform-client-mzima">platform-client-mzima</a></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/ke.svg" width="20" height="20" alt="Kenya" loading="lazy"><a class="name" href="https://github.com/ushahidi/platform-client-mzima">platform-client-mzima</a></div>
           <div class="tag-row"><span class="tag">TypeScript</span><span class="tag">Maps</span><span class="tag">i18n</span><span class="tag level">Intermediate</span></div>
           <p class="why">Mature African open-source product with active releases and a substantial issue backlog.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag">🇰🇪</span><a class="name" href="https://github.com/AfricasTalkingLtd/africastalking-java">Africa's Talking — Java SDK</a></div>
+          <div class="top"><img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/ke.svg" width="20" height="20" alt="Kenya" loading="lazy"><a class="name" href="https://github.com/AfricasTalkingLtd/africastalking-java">Africa's Talking — Java SDK</a></div>
           <div class="tag-row"><span class="tag">Java</span><span class="tag">SDK</span><span class="tag">Tests</span><span class="tag level">Intermediate</span></div>
           <p class="why">Contribution to a real production SDK used by developers building communications products.</p>
         </div>
 
         <div class="card project-card">
-          <div class="top"><span class="flag">🌍</span><a class="name" href="https://github.com/CodeForAfrica/africa-mining-watch">Africa Mining Watch</a></div>
+          <div class="top"><span class="flag"><svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span><a class="name" href="https://github.com/CodeForAfrica/africa-mining-watch">Africa Mining Watch</a></div>
           <div class="tag-row"><span class="tag">Python</span><span class="tag">Data</span><span class="tag">Maps</span><span class="tag level">Intermediate</span></div>
           <p class="why">Strong Africa-specific open-data use case with room for data and engineering contributions.</p>
         </div>
@@ -487,14 +520,14 @@
       <h3 style="font-size:16px;margin:40px 0 4px">Full pool — 30 candidates across 8 communities</h3>
       <p style="font-size:13.8px;color:var(--muted)">Beyond the top 10, these organisations are also in scope for outreach.</p>
       <div class="org-pool">
-        <a class="item" href="https://github.com/osscameroon"><b>OSSCameroon</b><span>8 repositories · 🇨🇲</span></a>
-        <a class="item" href="https://github.com/oscafrica"><b>Open Source Community Africa</b><span>3 repositories · 🌍</span></a>
-        <a class="item" href="https://github.com/OpenGovAfrica"><b>OpenGov Africa</b><span>2 repositories · 🌍</span></a>
-        <a class="item" href="https://github.com/CodeForAfrica"><b>Code for Africa</b><span>6 repositories · 🌍</span></a>
-        <a class="item" href="https://github.com/AfricasTalkingLtd"><b>Africa's Talking</b><span>4 SDK repositories · 🇰🇪</span></a>
-        <a class="item" href="https://github.com/ushahidi"><b>Ushahidi</b><span>2 repositories · 🇰🇪</span></a>
-        <a class="item" href="https://github.com/chaoss"><b>CHAOSS Africa</b><span>3 repositories · 🌍</span></a>
-        <a class="item" href="https://github.com/masakhane-io"><b>Masakhane</b><span>2 repositories · 🌍 NLP</span></a>
+        <a class="item" href="https://github.com/osscameroon"><b>OSSCameroon</b><span>8 repositories <img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/cm.svg" width="14" height="14" alt="Cameroon" loading="lazy"></span></a>
+        <a class="item" href="https://github.com/oscafrica"><b>Open Source Community Africa</b><span>3 repositories <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span></a>
+        <a class="item" href="https://github.com/OpenGovAfrica"><b>OpenGov Africa</b><span>2 repositories <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span></a>
+        <a class="item" href="https://github.com/CodeForAfrica"><b>Code for Africa</b><span>6 repositories <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span></a>
+        <a class="item" href="https://github.com/AfricasTalkingLtd"><b>Africa's Talking</b><span>4 SDK repositories <img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/ke.svg" width="14" height="14" alt="Kenya" loading="lazy"></span></a>
+        <a class="item" href="https://github.com/ushahidi"><b>Ushahidi</b><span>2 repositories <img class="flag" src="https://cdn.jsdelivr.net/npm/circle-flags@2.8.3/flags/ke.svg" width="14" height="14" alt="Kenya" loading="lazy"></span></a>
+        <a class="item" href="https://github.com/chaoss"><b>CHAOSS Africa</b><span>3 repositories <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg></span></a>
+        <a class="item" href="https://github.com/masakhane-io"><b>Masakhane</b><span>2 repositories <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg> NLP</span></a>
       </div>
 
       <details class="week" id="full-pool" style="margin-top:20px">
@@ -626,8 +659,8 @@
         <div class="skill-row"><span class="who">Languages / i18n</span><span class="what">Lewa, Masakhane, Ushahidi localisation</span></div>
       </div>
 
-      <div class="card" style="margin-top:40px;border-top:4px solid var(--blue)">
-        <h3>Quality over quantity</h3>
+      <div class="card callout" style="margin-top:40px">
+        <h3><svg class="icon" aria-hidden="true"><use href="#i-check-circle"/></svg>Quality over quantity</h3>
         <p style="margin-bottom:12px">Hacktoberfest Cameroon explicitly discourages mass-generated PRs, cosmetic edits made only to raise a contribution count, unsolicited large refactors, AI-generated changes the contributor can't explain, duplicate issues, and pressuring maintainers to merge.</p>
         <p class="quote">Useful contributions, respectful collaboration, and long-term participation in open source.</p>
       </div>
@@ -646,7 +679,7 @@
       </div>
       <div class="grid grid-2">
         <div class="card hub-card">
-          <div class="icon">🏠</div>
+          <div class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg></div>
           <h3>Hack from Home</h3>
           <p>Participants can work from home and use the OSSCameroon Telegram group to:</p>
           <ul>
@@ -661,7 +694,7 @@
           </div>
         </div>
         <div class="card hub-card">
-          <div class="icon">📍</div>
+          <div class="icon-box"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg></div>
           <h3>Hack from Atori</h3>
           <p>Throughout October, <a href="https://atori.space" target="_blank" rel="noopener">Atori Space</a> becomes a <strong>Hacktoberfest House</strong>, with a permanent open-source table, a Contribution Board and a QR code to the OSSCameroon Telegram group.</p>
           <div>
@@ -814,6 +847,34 @@
   Object.keys(links).forEach(function (id) {
     var section = document.getElementById(id);
     if (section) io.observe(section);
+  });
+})();
+
+(function () {
+  var STORAGE_KEY = 'hf26-theme';
+  var toggle = document.getElementById('themeToggle');
+  if (!toggle) return;
+
+  function systemIsDark() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+
+  function label(theme) {
+    var isDark = theme ? theme === 'dark' : systemIsDark();
+    toggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+
+  // The inline script in <head> already applied any saved choice before
+  // paint; this just keeps the button's label in sync with it.
+  label(document.documentElement.getAttribute('data-theme'));
+
+  toggle.addEventListener('click', function () {
+    var current = document.documentElement.getAttribute('data-theme');
+    var isDark = current ? current === 'dark' : systemIsDark();
+    var next = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    label(next);
+    try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
   });
 })();
 </script>
