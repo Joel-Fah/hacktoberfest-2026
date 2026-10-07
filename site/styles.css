@@ -1043,6 +1043,30 @@ img.flag { border-radius: 50%; vertical-align: -3px; }
 .hub-card { display: flex; flex-direction: column; gap: 14px; }
 .hub-card ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: 14px; }
 .hub-card li + li { margin-top: 6px; }
+.hub-cta { align-self: flex-start; margin-top: auto; }
+
+/* A hub with a real address: photo on top, optional in markup — a hub
+   without one yet (e.g. while waiting on a photo) just starts at the name,
+   no broken-image placeholder needed. */
+.hub-location { padding: 0; overflow: hidden; }
+.hub-location > :not(.hub-photo) { margin-left: 20px; margin-right: 20px; }
+.hub-location > :last-child { margin-bottom: 20px; }
+.hub-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-bottom: 4px;
+}
+.hub-city {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.hub-city .icon { color: var(--blue-text); flex: none; }
 .slot-row { display: flex; gap: 10px; flex-wrap: wrap; }
 .slot {
   font-family: var(--font-mono);
